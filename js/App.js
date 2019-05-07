@@ -6,6 +6,9 @@ import store from './store/index'
 
 type Props = {};
 export default class App extends Component<Props> {
+    componentDidMount() {
+        console.log('App moounted')
+    }
     render() {
         return (
             <Provider store={store}>

@@ -15,7 +15,7 @@ export default class WelcomePage extends Component<Props> {
         return (
             <View style={styles.container}>
                 <Text style={styles.welcome}>WelcomePage</Text>
-                <Button
+                {/* <Button
                     title={'跳转到fetch demo页面'}
                     onPress={() => {
                         NavigationUtil.navigation = this.props.navigation
@@ -29,14 +29,28 @@ export default class WelcomePage extends Component<Props> {
                         NavigationUtil.goPage({}, 'AsyncDemoPage')
                     }}
                 />
+                <Button
+                    title={'跳转到data store demo页面'}
+                    onPress={() => {
+                        NavigationUtil.navigation = this.props.navigation
+                        NavigationUtil.goPage({}, 'DataStoreDemoPage')
+                    }}
+                />
+                <Button
+                    title={'跳转到home页面'}
+                    onPress={() => {
+                        NavigationUtil.navigation = this.props.navigation
+                        NavigationUtil.goPage({}, 'Main')
+                    }}
+                /> */}
             </View>
         );
     }
     componentDidMount() {
         this.timer = setTimeout(() => {
-            // NavigationUtil.resetToHomePage({
-            //     navigation: this.props.navigation
-            // })
+            NavigationUtil.resetToHomePage({
+                navigation: this.props.navigation
+            })
         }, 200)
     }
     componentWillUnmount() {

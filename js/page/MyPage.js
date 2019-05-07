@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, Button} from 'react-native';
+import {Platform, StyleSheet, Text, View, Button, TouchableOpacity} from 'react-native';
+import NavigationBar from '../common/NavigationBar'
+import Feather from 'react-native-vector-icons/Feather'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 
+const THEME_COLOR = '#678'
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
     android:
@@ -11,31 +15,62 @@ const instructions = Platform.select({
 type Props = {};
 export default class MyPage extends Component<Props> {
     render() {
-        const { navigation } = this.props
+        let statusBar = {
+            backgroundColor: THEME_COLOR,
+            barStyle: 'light-content'
+        }
+        let navigationBar = <NavigationBar
+            title={'我的'}
+            statusBar={statusBar}
+            style={{backgroundColor: THEME_COLOR}}
+            rightButton={this.getRightButton()}
+            leftButton={this.getLeftButton()}
+        />
         return (
             <View style={styles.container}>
+                {navigationBar}
                 <Text style={styles.welcome}>MyPage</Text>
-                <Button
-                    title="改变主题颜色"
-                    onPress={() => {
-                        navigation.setParams({
-                            theme: {
-                                tintColor: 'yellow',
-                                updateTime: new Date().getTime()
-                            }
-                        })
-                    }}
-                ></Button>
             </View>
         );
+    }
+    getRightButton() {
+        return (
+            <View
+                style={{flexDirection: 'row'}}
+            >
+                <TouchableOpacity
+                    onPress={() => {}}
+                >
+                    <View style={{padding: 5, marginRight: 8}}>
+                        <Feather
+                            name={'search'}
+                            size={24}
+                            style={{color: 'white'}}
+                        />
+                    </View>
+                </TouchableOpacity>
+            </View>
+        )
+    }
+    getLeftButton() {
+        return (
+            <TouchableOpacity
+                style={{padding: 8, marginLeft: 12}}
+                onPress={() => {}}
+            >
+                <Ionicons
+                    name={'ios-arrow-back'}
+                    size={26}
+                    style={{color: 'white'}}
+                />
+            </TouchableOpacity>
+        )
     }
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: '#F5FCFF',
     },
     welcome: {

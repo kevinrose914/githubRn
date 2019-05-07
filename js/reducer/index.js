@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import theme from './theme/index'
+import popular from './popular/index'
 import { rootCom, RootNavigator } from '../navigator/AppNavigator'
 import { createNavigationReducer } from 'react-navigation-redux-helpers'
 
@@ -20,7 +21,8 @@ const navReducer = (state = navState, action) => {
  */
 const index = combineReducers({
     nav: navReducer,
-    theme
+    theme,
+    popular
 })
 
 export default index

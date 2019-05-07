@@ -51,6 +51,7 @@ class FetchDemoPage extends Component<Props> {
     loadData2() {
         const url = `https://api.github.com/search/repositories?q=${this.searchKey}`
         fetch(url).then(res => {
+            console.log('fetch success', res)
             if (res.ok) {
                 return res.text()
             }

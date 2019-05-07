@@ -86,6 +86,9 @@ class DynamicTabNavigator extends Component<Props> {
         super(props)
         // console.disableYellowBox = true // 禁止黄色的警告弹框
     }
+    componentDidMount() {
+        console.log('dynamic tab mounted')
+    }
     render() {
         // 保存navigation，会在嵌套路由里面用
         NavigationUtil.navigation = this.props.navigation
@@ -122,22 +125,22 @@ export default connect(mapStateToProps)(DynamicTabNavigator)
 class TabBarComponent extends Component<Props> {
     constructor(props) {
         super(props)
-        this.theme = {
-            tintColor: props.activeTintColor,
-            updateTime: new Date().getTime()
-        }
+        // this.theme = {
+        //     tintColor: props.activeTintColor,
+        //     updateTime: new Date().getTime()
+        // }
     }
     render() {
-        const { navigation } = this.props
-        const { state } = navigation
-        const { routes, index } = state
-        if (routes[index].params) {
-            const { theme } = routes[index].params
-            // 以最新的更新时间为主，防止被其他tab之前的更改所覆盖掉
-            if (theme && theme.updateTime > this.theme.updateTime) {
-                this.theme = theme
-            }
-        }
+        // const { navigation } = this.props
+        // const { state } = navigation
+        // const { routes, index } = state
+        // if (routes[index].params) {
+        //     const { theme } = routes[index].params
+        //     // 以最新的更新时间为主，防止被其他tab之前的更改所覆盖掉
+        //     if (theme && theme.updateTime > this.theme.updateTime) {
+        //         this.theme = theme
+        //     }
+        // }
         return (
             <BottomTabBar 
                 {...this.props}

@@ -14,7 +14,7 @@ const logger = store => next => action => {
     console.log('nextState', store.getState())
 }
 
-const middlewares = [middleware, logger, thunk]
+const middlewares = [middleware, thunk]
 /**
  * 创建store
  */

@@ -10,6 +10,7 @@ import HomePage from '../page/home'
 import DetailPage from '../page/detail'
 import FetchDemoPage from '../page/DemoPage/FetchDemoPage'
 import AsyncDemoPage from '../page/DemoPage/AsyncDemoPage'
+import DataStoreDemoPage from '../page/DemoPage/DataStoreDemoPage'
 import { connect } from 'react-redux'
 import { createReactNavigationReduxMiddleware, createReduxContainer } from 'react-navigation-redux-helpers'
 
@@ -25,6 +26,9 @@ const InitNavigator = createStackNavigator({
     },
     AsyncDemoPage: {
         screen: AsyncDemoPage
+    },
+    DataStoreDemoPage: {
+        screen: DataStoreDemoPage
     }
 })
 
